@@ -1,0 +1,21 @@
+CREATE DATABASE GT;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    is_admin BOOLEAN NOT NULL
+);
+
+
+CREATE TABLE tasks (
+    id SERIAL PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    datetime TIMESTAMP NOT NULL,
+    user_id INT REFERENCES users(id),
+    completed BOOLEAN NOT NULL
+);
+
+
+INSERT INTO users (username, password, name, is_admin)
+VALUES ('alisson', '1234', 'Alisson Vieira', true);
